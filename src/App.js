@@ -20,6 +20,7 @@ function App() {
         localforage.setItem('notes', JSON.stringify(notes))
             .then(() => {})
 
+        console.clear()
         console.log('Notes: ', notes)
     }, [notes])
 
@@ -75,7 +76,7 @@ function App() {
             </div>
             <FloatButton
                 style={{
-                    position: 'absolute',
+                    position: 'fixed',
                     bottom: '3rem',
                     width: '3rem',
                     height: '3rem',
