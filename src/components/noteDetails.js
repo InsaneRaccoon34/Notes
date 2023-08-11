@@ -49,8 +49,12 @@ const NoteDetails = ({ initNote, updateNote, deleteNote }) => {
                 />
             }
         >
-            <div>
+            <div className={css(styles.contentBlock)}>
                 <TextArea
+                    style={{
+                        resize: 'none',
+                        height: '100%'
+                    }}
                     bordered={true}
                     onChange={updateContent}
                     id='content'
@@ -82,7 +86,9 @@ export default NoteDetails;
 
 const styles = StyleSheet.create({
     contentBlock: {
-
+        display: 'flex',
+        flexDirection: 'column',
+        height: '15rem'
     },
     editButtonsBlock: {
         display: 'flex',
