@@ -1,5 +1,5 @@
 import {css, StyleSheet} from "aphrodite-jss";
-import {FloatButton} from "antd";
+import {Button, Tooltip} from "antd";
 import NotesList from "./components/notesList";
 import {useEffect, useState} from "react";
 import { v4 as uuid } from "uuid";
@@ -54,6 +54,10 @@ function App() {
         setNotes(newNotes)
     }
 
+    const deleteAllNotes = () => {
+        setNotes([])
+    }
+
     return (
         <div className={css(styles.App)}>
             <header className={css(styles.header)}>
@@ -74,18 +78,39 @@ function App() {
                     deleteNote={deleteNote}
                 />
             </div>
-            <FloatButton
-                style={{
-                    position: 'fixed',
-                    bottom: '3rem',
-                    width: '3rem',
-                    height: '3rem',
-                }}
-                type='primary'
-                onClick={createNote}
-                icon={<>+</>}
-                tooltip={['Add a note']}
-            />
+            <Tooltip placement='left' title='Add a note'>
+                <Button
+                    style={{
+                        position: 'fixed',
+                        bottom: '3rem',
+                        right: '2rem',
+                        width: '3rem',
+                        height: '3rem',
+                    }}
+                    type='primary'
+                    shape='circle'
+                    onClick={createNote}
+                    icon={<>+</>}
+                />
+            </Tooltip>
+            <Tooltip placement='left' title='Delete ALL notes' color='red'>
+                <Button
+                    style={{
+                        position: 'fixed',
+                        bottom: '7.5rem',
+                        right: '2rem',
+                        width: '3rem',
+                        height: '3rem',
+                        backgroundColor: 'red'
+                    }}
+                    danger={true}
+                    shape='circle'
+                    type='primary'
+                    onClick={deleteAllNotes}
+                    icon={<>-</>}
+                    tooltip={['Delete ALL notes']}
+                />
+            </Tooltip>
         </div>
     );
 }
