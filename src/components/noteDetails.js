@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Card, Input} from "antd";
 import {css, StyleSheet} from "aphrodite-jss";
+import './noteDetails.css'
 
 const { TextArea } = Input
 
@@ -49,7 +50,7 @@ const NoteDetails = ({ initNote, updateNote, deleteNote }) => {
                 />
             }
         >
-            <div className={css(styles.contentBlock)}>
+            <div className='ContentBlock'>
                 <TextArea
                     style={{
                         resize: 'none',
@@ -62,38 +63,22 @@ const NoteDetails = ({ initNote, updateNote, deleteNote }) => {
                 >
                     {content}
                 </TextArea>
-                {isEditable || isChanged || true ?
-                    <div className={css(styles.editButtonsBlock)}>
-                        <Button
-                            disabled={!isChanged}
-                            onClick={onSave}
-                        >Save</Button>
-                        <Button
-                            danger={true}
-                            onClick={() => deleteNote(note)}
-                        >
-                            delete
-                        </Button>
-                    </div>
-                    : <></>
-                }
+                <div className='EditButtonsBlock'>
+                    <Button
+                        disabled={!isChanged}
+                        onClick={onSave}
+                    >Save</Button>
+                    <Button
+                        danger={true}
+                        onClick={() => deleteNote(note)}
+                    >
+                        delete
+                    </Button>
+                </div>
             </div>
         </Card>
     )
 };
 
 export default NoteDetails;
-
-const styles = StyleSheet.create({
-    contentBlock: {
-        display: 'flex',
-        flexDirection: 'column',
-        height: '15rem'
-    },
-    editButtonsBlock: {
-        display: 'flex',
-        justifyContent: 'center',
-        marginTop: '1.2rem'
-    }
-})
 

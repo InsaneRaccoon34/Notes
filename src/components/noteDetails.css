@@ -1,0 +1,32 @@
+.ContentBlock {
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+}
+
+.ContentBlock:hover .EditButtonsBlock{
+    display: flex;
+    animation-name: ButtonsAppear;
+    animation-duration: .5s;
+    animation-timing-function: cubic-bezier(0,1.2,1,.9);
+}
+
+.EditButtonsBlock {
+    display: none;
+    justify-content: center;
+    margin-top: 1.2rem;
+}
+
+@keyframes ButtonsAppear {
+    0% {
+        display: none;
+        opacity: 0;
+        margin-top: -1.2rem;
+    }
+
+    100% {
+        display: flex;
+        opacity: 1;
+    }
+
+}
