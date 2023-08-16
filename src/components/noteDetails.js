@@ -39,8 +39,9 @@ const NoteDetails = ({ initNote, updateNote, deleteNote }) => {
             key={id}
             style={{
                 width: '25rem',
-                transition: '0.5s'
+                transition: '0.5s',
             }}
+            className={css(styles.card)}
             title={
                 <Input
                     placeholder={isDefault ? title : ''}
@@ -81,4 +82,12 @@ const NoteDetails = ({ initNote, updateNote, deleteNote }) => {
 };
 
 export default NoteDetails;
+
+const styles = StyleSheet.create({
+    card: {
+        '&:hover': {
+            boxShadow: '0px 2px 30px -10px rgba(77,77,77,0.71)'
+        }
+    }
+})
 
