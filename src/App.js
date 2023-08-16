@@ -4,6 +4,7 @@ import NotesList from "./components/notesList";
 import {useEffect, useState} from "react";
 import { v4 as uuid } from "uuid";
 import localforage from "localforage";
+import './components/floatingTextAnimation.css'
 import _ from "lodash";
 
 function App() {
@@ -62,10 +63,10 @@ function App() {
         <div className={css(styles.App)}>
             <header className={css(styles.header)}>
                 <span>Notes</span>
-                <span style={{
+                <span className='floatingText' style={{
                     position: 'absolute',
                     color: 'red',
-                    transform: ' translate(30px, -10px) rotate(23deg) scale(.8)',
+                    //transform: ' translate(30px, -10px) rotate(23deg) scale(.8)',
                     display: 'flex',
                 }}>
                     Its beta
